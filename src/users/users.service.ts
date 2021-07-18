@@ -25,6 +25,7 @@ export class UsersService {
   async getById(id: number) {
     const user = await this.usersRepository.findOne({ id });
     if (user) {
+      console.log(user);
       return user;
     }
     throw new HttpException(

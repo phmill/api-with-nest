@@ -8,7 +8,6 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { Response } from 'express';
 import { AuthenticationService } from './authentication.service';
 import RegisterDto from './dto/register.dto';
 import JwtAuthenticationGuard from './jwt-authentication.guard';

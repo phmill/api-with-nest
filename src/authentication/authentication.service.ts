@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { UsersService } from 'src/users/users.service';
-import * as bcrypt from 'bcrypt';
-import RegisterDto from './dto/register.dto';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
+import { UsersService } from '../users/users.service';
+import RegisterDto from './dto/register.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthenticationService {
@@ -21,7 +21,7 @@ export class AuthenticationService {
         ...registrationData,
         password: hashedPassword,
       });
-      createdUser.password = undefined; // to be modified
+      // createdUser.password = undefined; // to be modified
       return createdUser;
     } catch (error) {
       if (error?.code === PostgresErrorCode.UniqueViolation) {
