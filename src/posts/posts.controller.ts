@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Put,
+  Query,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -21,8 +22,16 @@ import PostsService from './posts.service';
 export default class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
+  // @Get()
+  // getAllPosts() {
+  //   return this.postsService.getAllPosts();
+  // }
+
   @Get()
-  getAllPosts() {
+  async getPosts(@Query('search') search: string) {
+    if (search) {
+      return this.postsService.searchForPosts(search);
+    }
     return this.postsService.getAllPosts();
   }
 
