@@ -1,5 +1,3 @@
-import { Exclude } from 'class-transformer';
-import Post from '../posts/post.entity';
 import {
   Column,
   Entity,
@@ -8,6 +6,8 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
+import Post from '../posts/post.entity';
 import Address from './address.entity';
 import PublicFile from '../files/publicFile.entity';
 
@@ -42,6 +42,12 @@ class User {
     nullable: true,
   })
   public avatar?: PublicFile;
+
+  @Column({
+    nullable: true,
+  })
+  @Exclude({ toPlainOnly: true })
+  public currentHashedRefreshToken?: string;
 }
 
 export default User;
