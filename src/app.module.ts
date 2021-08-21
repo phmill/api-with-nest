@@ -8,6 +8,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { CategoriesModule } from './categories/categories.module';
 import { FilesModule } from './files/files.module';
 import { SearchModule } from './search/search.module';
+import { SubscribersModule } from './subscribers/subscribers.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { SearchModule } from './search/search.module';
     CategoriesModule,
     FilesModule,
     SearchModule,
+    SubscribersModule,
   ],
   controllers: [],
   providers: [],
